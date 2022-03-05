@@ -64,7 +64,13 @@ const Basic = () => (
             onSubmit={async (values) => {
                 if (valid(values)) {
                     await new Promise((r) => setTimeout(r, 500));
-                    alert(JSON.stringify(values, null, 2));
+                    fetch('https://pixelbot.oskar.global/v1/submit_application', {
+                        method: 'POST',
+                        headers: new Headers({
+                            'Content-Type': 'application/json',
+                        }),
+                        body: JSON.stringify(values)
+                    });
                 }
             }}>
             {({ values }) => (
