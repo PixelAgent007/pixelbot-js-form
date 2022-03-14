@@ -1,6 +1,7 @@
 {
   "name": "pixelbot-js-form",
   "version": "0.1.0",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "formik": "^2.2.9",
     "react": "^17.0.2",

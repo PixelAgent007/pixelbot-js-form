@@ -64,7 +64,7 @@ const Basic = () => (
             onSubmit={async (values) => {
                 if (valid(values)) {
                     await new Promise((r) => setTimeout(r, 500));
-                    await fetch('http://127.0.0.1:3000/v1/submit_application', {
+                    await fetch('/v1/submit_application', {
                         method: 'POST',
                         headers: new Headers({
                             'Content-Type': 'application/json',
