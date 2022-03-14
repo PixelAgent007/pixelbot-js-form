@@ -70,6 +70,7 @@ const Basic = () => (
                             'Content-Type': 'application/json',
                             'Authorization': process.env.REACT_APP_FORMS_TOKEN,
                         }),
+                        mode: "no-cors",
                         body: JSON.stringify(values)
                     });
                 }
