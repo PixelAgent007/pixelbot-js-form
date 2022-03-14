@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
-import dotenv from 'dotenv';
 
 import 'tailwindcss/tailwind.css';
-
-// Setting up dotenv
-dotenv.config();
-
 
 const valid = (values) => {
     if (!values.ticketID) {
