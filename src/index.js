@@ -68,7 +68,6 @@ const Basic = () => (
                         method: 'POST',
                         headers: new Headers({
                             'Content-Type': 'application/json',
-                            'Authorization': process.env.REACT_APP_FORMS_TOKEN,
                         }),
                         mode: "no-cors",
                         body: JSON.stringify(values)
