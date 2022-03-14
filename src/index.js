@@ -50,21 +50,21 @@ const Basic = () => (
                 ticketID: '',
                 timezone: '',
                 ign: '',
-                nick: '',
+                nick: 'n.A.',
                 age: '13-15',
-                hobbies: '',
+                hobbies: 'n.A.',
                 origin: '',
                 origin_desc: '',
                 done: false,
-                download: '',
+                download: 'n.A.',
                 active: false,
                 rules: false,
-                anythingElse: '',
+                anythingElse: 'n.A.',
             }}
             onSubmit={async (values) => {
                 if (valid(values)) {
                     await new Promise((r) => setTimeout(r, 500));
-                    fetch('https://pixelbot.oskar.global/v1/submit_application', {
+                    await fetch('http://127.0.0.1:8080/v1/submit_application', {
                         method: 'POST',
                         headers: new Headers({
                             'Content-Type': 'application/json',
