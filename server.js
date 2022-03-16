@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Setting up cors
-app.use(cors());
+app.use(cors({ origin: 'https://apply.oskar.global', }));
 
 app.post("/v1/submit_application", async (req, res) => {
     await fetch('http://localhost:3000/v1/submit_application', {
