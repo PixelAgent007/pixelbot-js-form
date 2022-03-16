@@ -1,32 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Formik, Field, Form } from 'formik';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Formik, Field, Form } from "formik";
 
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 
 const valid = (values) => {
     if (!values.ticketID) {
-        alert('The ticket ID is required!');
+        alert("The ticket ID is required!");
         return false;
     }
 
     if (!values.timezone) {
-        alert('The timezone is required!');
+        alert("The timezone is required!");
         return false;
     }
 
     if (!values.ign) {
-        alert('The Minecraft name is required!');
+        alert("The Minecraft name is required!");
         return false;
     }
 
     if (!values.origin) {
-        alert('You have to specify the origin name!');
+        alert("You have to specify the origin name!");
         return false;
     }
 
     if (!values.origin_desc) {
-        alert('The Origin description must be specified!');
+        alert("The Origin description must be specified!");
         return false;
     }
 
@@ -34,12 +34,12 @@ const valid = (values) => {
 };
 
 const Basic = () => (
-    <div className={'bg-gray-400 shadow-sm rounded-md p-8 rounded m-32'}>
+    <div className={"bg-gray-400 shadow-sm rounded-md p-8 rounded m-32"}>
         <div
             id="area0"
-            className={'bg-gray-100 shadow-sm rounded-md p-8 rounded m-8'}>
-            <h1 className={'text-5xl'}>Dark Moon SMP Member Application</h1>
-            <p className={'text-base text-xxl'}>
+            className={"bg-gray-100 shadow-sm rounded-md p-8 rounded m-8"}>
+            <h1 className={"text-5xl"}>Dark Moon SMP Member Application</h1>
+            <p className={"text-base text-xxl"}>
                 Use this form to apply as a Member on the Dark Moon SMP. All
                 responses will be sent to the staff team. Please always open a
                 ticket before filling this out and specify the ticket id.
@@ -47,30 +47,29 @@ const Basic = () => (
         </div>
         <Formik
             initialValues={{
-                ticketID: '',
-                timezone: '',
-                ign: '',
-                nick: 'n.A.',
-                age: '13-15',
-                hobbies: 'n.A.',
-                origin: '',
-                origin_desc: '',
+                ticketID: "",
+                timezone: "",
+                ign: "",
+                nick: "n.A.",
+                age: "13-15",
+                hobbies: "n.A.",
+                origin: "",
+                origin_desc: "",
                 done: false,
-                download: 'n.A.',
+                download: "n.A.",
                 active: false,
                 rules: false,
-                anythingElse: 'n.A.',
+                anythingElse: "n.A.",
             }}
             onSubmit={async (values) => {
                 if (valid(values)) {
                     await new Promise((r) => setTimeout(r, 500));
-                    await fetch('/v1/submit_application', {
-                        method: 'POST',
+                    await fetch("http://localhost:3000/v1/submit_application", {
+                        method: "POST",
                         headers: new Headers({
-                            'Content-Type': 'application/json',
+                            "Content-Type": "application/json",
                         }),
-                        mode: "no-cors",
-                        body: JSON.stringify(values)
+                        body: JSON.stringify(values),
                     });
                 }
             }}>
@@ -79,7 +78,7 @@ const Basic = () => (
                     <div
                         id="area1"
                         className={
-                            'bg-gray-100 shadow-sm rounded-md p-8 rounded m-8'
+                            "bg-gray-100 shadow-sm rounded-md p-8 rounded m-8"
                         }>
                         <label htmlFor="ticketID">
                             Your Ticket ID <br />
@@ -87,10 +86,10 @@ const Basic = () => (
                                 id="ticketID"
                                 name="ticketID"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder="0122344567386783"
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -100,10 +99,10 @@ const Basic = () => (
                                 id="timezone"
                                 name="timezone"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder="GMT+10"
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -113,10 +112,10 @@ const Basic = () => (
                                 id="ign"
                                 name="ign"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder="PixelAgent007"
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -126,10 +125,10 @@ const Basic = () => (
                                 id="nick"
                                 name="nick"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder="Pixel"
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
                     </div>
@@ -137,7 +136,7 @@ const Basic = () => (
                     <div
                         id="area2"
                         className={
-                            'bg-gray-100 shadow-sm rounded-md p-8 rounded m-8'
+                            "bg-gray-100 shadow-sm rounded-md p-8 rounded m-8"
                         }>
                         <label htmlFor="age">
                             How old are you? <br />
@@ -146,7 +145,7 @@ const Basic = () => (
                                 id="age"
                                 name="age"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }>
                                 <option value="13-15">13-15</option>
                                 <option value="16-18">16-18</option>
@@ -154,7 +153,7 @@ const Basic = () => (
                                 <option value="No Answer">
                                     I prefer not to answer.
                                 </option>
-                            </Field>{' '}
+                            </Field>{" "}
                         </label>
                         <br />
 
@@ -168,10 +167,10 @@ const Basic = () => (
                                 id="hobbies"
                                 name="hobbies"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder=""
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -181,10 +180,10 @@ const Basic = () => (
                                 id="origin"
                                 name="origin"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder=""
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -197,10 +196,10 @@ const Basic = () => (
                                 id="origin_desc"
                                 name="origin_desc"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder=""
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
 
@@ -208,7 +207,7 @@ const Basic = () => (
                             Is it already made? If it isn't, our devs will make
                             it. <br />
                             <Field type="checkbox" name="done" />
-                            {`${values.done}`}{' '}
+                            {`${values.done}`}{" "}
                         </label>
                         <br />
 
@@ -219,10 +218,10 @@ const Basic = () => (
                                 id="download"
                                 name="download"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 placeholder=""
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
                     </div>
@@ -230,36 +229,36 @@ const Basic = () => (
                     <div
                         id="area3"
                         className={
-                            'bg-gray-100 shadow-sm rounded-md p-8 rounded m-8'
+                            "bg-gray-100 shadow-sm rounded-md p-8 rounded m-8"
                         }>
                         <label htmlFor="active">
                             Do you agree to being active on the server? <br />
                             <Field type="checkbox" name="active" />
-                            {`${values.active}`}{' '}
+                            {`${values.active}`}{" "}
                         </label>
                         <br />
 
                         <label htmlFor="rules">
                             Do you agree to the rules? <br />
                             <Field type="checkbox" name="rules" />
-                            {`${values.rules}`}{' '}
+                            {`${values.rules}`}{" "}
                         </label>
                         <br />
 
-                        <label htmlFor="anythingElse" className={'m-2'}>
-                            Do you want to say anything else? (Not mandatory){' '}
+                        <label htmlFor="anythingElse" className={"m-2"}>
+                            Do you want to say anything else? (Not mandatory){" "}
                             <br />
                             <Field
                                 as="textarea"
                                 className={
-                                    'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full'
+                                    "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
                                 }
                                 rows="5"
                                 cols="25"
                                 id="anythingElse"
                                 name="anythingElse"
                                 placeholder=""
-                            />{' '}
+                            />{" "}
                         </label>
                         <br />
                     </div>
@@ -267,12 +266,12 @@ const Basic = () => (
                     <div
                         id="area4"
                         className={
-                            'bg-gray-100 shadow-sm rounded-md p-8 rounded m-8'
+                            "bg-gray-100 shadow-sm rounded-md p-8 rounded m-8"
                         }>
                         <button
                             type="submit"
                             className={
-                                'bg-green-500 text-4xl content-center rounded p-4 text-white'
+                                "bg-green-500 text-4xl content-center rounded p-4 text-white"
                             }>
                             Submit
                         </button>
@@ -283,4 +282,4 @@ const Basic = () => (
     </div>
 );
 
-ReactDOM.render(<Basic />, document.getElementById('root'));
+ReactDOM.render(<Basic />, document.getElementById("root"));
