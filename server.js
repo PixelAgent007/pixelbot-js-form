@@ -16,10 +16,21 @@ app.use(bodyParser.json());
 // Setting up cors
 app.use(cors());
 
+app.post("/v1/submit_application", async (req, res) => {
+    await fetch('http://localhost:3000/v1/submit_application', {
+        method: "POST",
+        headers: req.headers,
+        body: JSON.stringify(req.body),
+    }).then((response) => {
+        res.json(response.body);
+        res.status(response.status);
+    });
+});
+
 const pathToClientBuild = path.join(__dirname, "/build");
 app.use(express.static(pathToClientBuild));
 
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
     res.sendFile(path.join(pathToClientBuild, "index.html"));
 });
 
